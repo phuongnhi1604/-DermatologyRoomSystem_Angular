@@ -1,0 +1,21 @@
+.table__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+}
+
+table{
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+}
+thead{
+  border-radius: 8px;
+}
+thead{
+  background-color: #bdd7fd;
+}

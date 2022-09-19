@@ -1,0 +1,18 @@
+.carousel-inner {
+  border-radius: 10px;
+}
+
+.header__container {
+  position: relative;
+  margin-top: 40px
+}
+.button__card, .btn__card{
+  width: 100%;
+  margin-top: 10px;
+}
+.card__title .card-title{
+  font-weight: bold;
+}
+.card__info{
+  margin-top: 20px;
+}
