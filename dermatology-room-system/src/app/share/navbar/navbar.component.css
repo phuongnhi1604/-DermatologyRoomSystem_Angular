@@ -90,3 +90,8 @@
 .search__text{
   border-radius: 4px 0px 0px 4px;
 }
+.navbar__collapse-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
