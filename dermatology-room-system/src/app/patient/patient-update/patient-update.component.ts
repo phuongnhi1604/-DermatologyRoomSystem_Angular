@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {PatientService} from '../../service/patient.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {IPatient} from '../../models/ipatient';
 
 @Component({
   selector: 'app-patient-update',
@@ -11,7 +12,7 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 export class PatientUpdateComponent implements OnInit {
   patientUpdateForm: FormGroup;
   id: number;
-
+  patientUpdate: IPatient = {};
   constructor(private patientService: PatientService,
               private activatedRouter: ActivatedRoute,
               private router: Router) {
@@ -34,12 +35,11 @@ export class PatientUpdateComponent implements OnInit {
       });
     });
   }
-
   ngOnInit(): void {
   }
-  updatePatient(id: number){
+  updatePatient(id: number) {
     const patient = this.patientUpdateForm.value;
-    this.patientService.updatePatient(id, patient).subscribe(() =>{
+    this.patientService.updatePatient(id, patient).subscribe(() => {
       alert('Cập nhật thành công');
     });
   }
