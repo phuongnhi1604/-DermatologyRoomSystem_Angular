@@ -10,13 +10,14 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class PatientCreateComponent implements OnInit {
   patientCreateForm = new FormGroup({
-    paName: new FormControl(),
-    paGender: new FormControl(),
-    paAddress: new FormControl(),
-    paPhone: new FormControl(),
-    paIdCard: new FormControl(),
-    paEmail: new FormControl(),
-    paUserName: new FormControl(),
+    pa_name: new FormControl(),
+    pa_birthday: new FormControl(),
+    pa_gender: new FormControl(),
+    pa_address: new FormControl(),
+    pa_phone: new FormControl(),
+    pa_id_card: new FormControl(),
+    pa_email: new FormControl(),
+    username: new FormControl(),
   });
   constructor(private patient: PatientService,
               private activatedRouter: ActivatedRoute,
@@ -29,7 +30,7 @@ export class PatientCreateComponent implements OnInit {
     this.patient.savePatient(patient).subscribe(() => {
       alert('Tạo thành công');
       this.patientCreateForm.reset();
-      this.router.navigate(['/patient/list']);
+      this.router.navigate(['']);
     }, e => console.log(e));
   }
 
