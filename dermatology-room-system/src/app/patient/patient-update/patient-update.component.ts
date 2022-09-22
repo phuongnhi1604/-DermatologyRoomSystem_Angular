@@ -16,7 +16,7 @@ export class PatientUpdateComponent implements OnInit {
               private activatedRouter: ActivatedRoute,
               private router: Router) {
     this.activatedRouter.paramMap.subscribe((paramMap: ParamMap) => {
-      this.id = +paramMap.get('pa_id');
+      this.id = +paramMap.get('id');
       this.getPatient(this.id);
     });
   }
