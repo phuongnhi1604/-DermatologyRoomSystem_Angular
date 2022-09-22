@@ -8,23 +8,34 @@ import {PatientService} from '../../service/patient.service';
   styleUrls: ['./patient-list.component.css']
 })
 export class PatientListComponent implements OnInit {
-  patinets: IPatient[] = [];
+  patients: IPatient[] = [];
   patientDelete: IPatient = {};
+  p = 1;
+  name: string;
+  config: any;
   constructor(private patientService: PatientService) { }
 
   ngOnInit(): void {
     this.getAll();
   }
-  getAll(){
+  getAll() {
     this.patientService.getAll().subscribe(patients => {
-      this.patinets = patients;
+      this.patients = patients;
       console.log(patients);
     });
+  }
+  getPatientByName(paName: string) {
+    this.patientService.getPatientByName(paName).subscribe(patients =>{
+      this.patients = patients;
+    });
+  }
+  searchPatient(paName: string) {
+    this.patientService.getPatientByName(paName);
   }
   getPatientDelete(patient: IPatient){
     this.patientDelete = patient;
   }
-  deletePatient(id: number){
+  deletePatient(id: number) {
     this.patientService.deletePatient(id).subscribe(
       () => {
       },

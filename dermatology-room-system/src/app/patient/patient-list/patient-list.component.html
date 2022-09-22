@@ -1,26 +1,56 @@
 <div class="grid wide table__container">
-  <table class="table">
-    <thead>
-    <tr>
-      <td>STT</td>
-      <td>Họ và tên</td>
-      <td>Giới tính</td>
-      <td>Địa chỉ</td>
-      <td>Số điện thoại</td>
-      <td colspan="3">chức năng</td>
-    </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td >1</td>
-        <td>Họ và tên</td>
-        <td>Giới tính</td>
-        <td>Địa chỉ</td>
-        <td>Số điện thoại</td>
-        <td>Xoá</td>
-        <td>Sửa</td>
-        <td>Thông tin</td>
-      </tr>
-    </tbody>
-  </table>
+    <div>
+        <div class="row">
+            <div class="col-md-7 header__table">
+                <h2>Danh sách bệnh nhân</h2>
+            </div>
+            <div class="col-md-5 header__table">
+                <button class="btn btn-info btn-rounded" routerLink="/patient/create" type="button"><i
+                    class="fa-solid fa-pen-to-square"></i></button>
+            </div>
+        </div>
+        <div>
+            <div class="text__filed">
+                <label class="inp" for="inp">
+                    <input #SearchBox (input)="searchPatient(SearchBox.value)" id="inp" placeholder="&nbsp;"
+                           type="text">
+                    <span class="label">Tìm kiếm</span>
+                    <span class="focus-bg"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div style="overflow-x:auto;">
+        <table class="table">
+            <thead>
+            <tr>
+                <td>STT</td>
+                <td>Họ và tên</td>
+                <td>Giới tính</td>
+                <td>Địa chỉ</td>
+                <td>Số điện thoại</td>
+                <td colspan="3">Chức năng</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let patient of patients | paginate: { itemsPerPage: 5, currentPage: p }">
+                <td>{{patient.pa_id}}</td>
+                <td>{{patient.pa_name}}</td>
+                <td *ngIf="!patient.pa_gender">Nam</td>
+                <td *ngIf="patient.pa_gender">Nữ</td>
+                <td>{{patient.pa_address}}</td>
+                <td>{{patient.pa_phone}}</td>
+                <td><a class="btn btn-warning" type="button"><i class="fa-solid fa-trash"></i></a></td>
+                <td>
+                    <a [routerLink]="['/patient/update',patient.pa_id]" class="btn btn-success" type="button"><i
+                        class="fa-solid fa-circle-info"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div class="wide grid pagination__container">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

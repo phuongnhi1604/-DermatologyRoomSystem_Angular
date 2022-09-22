@@ -1,5 +1,4 @@
 .table__container{
-  display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
@@ -18,4 +17,19 @@ thead{
 }
 thead{
   background-color: #bdd7fd;
+}
+
+.header__table{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 50px;
+}
+
+
+.pagination__container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

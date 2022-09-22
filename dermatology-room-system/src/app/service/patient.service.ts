@@ -14,22 +14,24 @@ export class PatientService {
   }
 
   getAll(): Observable<IPatient[]> {
-    return this.http.get<IPatient[]>(API_URL + '/patient');
+    return this.http.get<IPatient[]>(API_URL + '/api/patient');
   }
 
   savePatient(patient): Observable<IPatient> {
-    return this.http.post<IPatient>(API_URL + '/patient', patient);
+    return this.http.post<IPatient>(API_URL + '/api/patient', patient);
   }
-
+  getPatientByName(paName: string): Observable<IPatient[]> {
+    return this.http.get<IPatient[]>(`${API_URL}/api/patient/search?pa_name=${paName}`);
+  }
   findById(id: number): Observable<IPatient> {
-    return this.http.get<IPatient>(`${API_URL}/patient/${id}`);
+    return this.http.get<IPatient>(`${API_URL}/api/patient/${id}`);
   }
 
   updatePatient(id: number, patient: IPatient): Observable<IPatient> {
-    return this.http.put<IPatient>(`${API_URL}/patient/${id}`, patient);
+    return this.http.put<IPatient>(`${API_URL}/api/patient/${id}`, patient);
   }
 
   deletePatient(id: number): Observable<IPatient> {
-    return this.http.delete<IPatient>(`${API_URL}/patient/${id}`);
+    return this.http.delete<IPatient>(`${API_URL}/api/patient/${id}`);
   }
 }

@@ -7,9 +7,22 @@ body {
 }
 
 .create__container{
-  background-color: #fff;
+  /*background-color: #fff;*/
   margin-top: 20px;
+  margin-bottom: 40px;
   border-radius: 8px;
+}
+
+.info__container{
+  background-color: #fff;
+  margin: 25px;
+  border-radius: 8px;
+}
+.button__save{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px;
 }
 
 .text__filed{
@@ -17,14 +30,16 @@ body {
 }
 
 .row1__container{
-  padding-left: 40px;
+  padding-left: 30px;
   padding-right: 20px;
 }
 .row2__container{
   padding-left: 20px;
-  padding-right: 40px;
+  padding-right: 30px;
 }
-
+.modal-body, .account__container{
+  padding: 20px;
+}
 * {
   box-sizing: border-box;
 }

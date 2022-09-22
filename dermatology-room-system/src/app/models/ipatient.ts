@@ -1,12 +1,13 @@
 import {ICalendar} from './icalendar';
 
 export interface IPatient {
-  id?: number;
-  paName?: string;
-  paGender?: boolean;
-  paAddress?: string;
-  paPhone?: string;
-  paIdCard?: string;
-  paEmail?: string;
-  paUserName?: string;
+  pa_id?: number;
+  pa_name?: string;
+  pa_gender?: boolean;
+  pa_birthday?: string;
+  pa_address?: string;
+  pa_phone?: string;
+  pa_id_card?: string;
+  pa_email?: string;
+  username?: string;
 }

@@ -1,71 +1,65 @@
-<div class="grid wide create__container">
-  <div class="row">
-    <div class="col-md-6 row1__container">
-      <div class="text__filed">
-        <label class="inp" for="inp">
-          <input id="inp" placeholder="&nbsp;" type="text">
-          <span class="label">Họ và tên</span>
-          <span class="focus-bg"></span>
-        </label>
+<div class="modal fade w-200" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form  [formGroup]="patientCreateForm" (ngSubmit)="submit()">
+      <div class="modal-header text-center">
+        <h1 class="modal-title w-100 font-weight-bold">Đăng ký</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div class="text__filed">
-        <label class="inp" for="inp">
-          <input id="inp" placeholder="&nbsp;" type="date">
-          <span class="label">Ngày sinh</span>
-          <span class="focus-bg"></span>
-        </label>
-      </div>
-      <div class="text__filed">
-        <label class="inp" for="inp">
-          <input id="inp" placeholder="&nbsp;" type="text">
-          <span class="label">Địa chỉ</span>
-          <span class="focus-bg"></span>
-        </label>
-      </div>
-      <div class="radio__container">
-        <span>Giới tính</span>
-        <div>
-          <label class="radio__label">
-            <input type="radio" name="radio" checked/>
-            <span>Nam</span>
-          </label>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="modal-body mx-3">
+            <div class="md-form">
+              <label data-error="wrong" data-success="right" for="orangeForm-user">Tên đăng nhập</label>
+              <input type="text" id="orangeForm-user" class="form-control validate" placeholder="Tên đăng nhập" formControlName="username">
+            </div>
+            <div class="md-form mt-2">
+              <label data-error="wrong" data-success="right" for="orangeForm-name">Họ và tên</label>
+              <input type="text" id="orangeForm-name" class="form-control validate" placeholder="Họ và tên" formControlName="pa_name">
+            </div>
+            <div class="md-form mt-2">
+              <label data-error="wrong" data-success="right" for="orangeForm-birthday">Ngày sinh</label>
+              <input type="date" id="orangeForm-birthday" class="form-control validate" placeholder="Ngày sinh" formControlName="pa_birthday">
+            </div>
+            <div class="md-form mt-2">
+              <h4 class="mb-2 pb-1 ml-1">Giới tính </h4>
+              <input class="form-check-input ml-5" type="radio" name="pa_gender" id="maleGender"
+                     value="false" formControlName="pa_gender" />
+              <label class="form-check-label" for="maleGender">Nam</label>
+              <input class="form-check-input ml-5" type="radio" name="pa_gender" id="femaleGender"
+                     value="true" formControlName="pa_gender" />
+              <label class="form-check-label" for="femaleGender">Nữ</label>
+            </div>
+          </div>
         </div>
-        <div>
-          <label class="radio__label">
-            <input type="radio" name="radio" checked/>
-            <span>Nữ</span>
-          </label>
+        <div class="col-md-6">
+          <div class="modal-body mx-3">
+            <div class="md-form">
+              <label data-error="wrong" data-success="right" for="orangeForm-address">Địa chỉ</label>
+              <input type="text" id="orangeForm-address" class="form-control validate" placeholder="Địa chỉ" formControlName="pa_address">
+            </div>
+            <div class="md-form mt-2">
+              <label data-error="wrong" data-success="right" for="orangeForm-phone">Số điện thoại</label>
+              <input type="text" id="orangeForm-phone" class="form-control validate" placeholder="Số điện thoại" formControlName="pa_phone">
+            </div>
+            <div class="md-form mt-2">
+              <label data-error="wrong" data-success="right" for="orangeForm-cccd">CCCD/CMND</label>
+              <input type="text" id="orangeForm-cccd" class="form-control validate" placeholder="CMND/CCCD" formControlName="pa_id_card">
+            </div>
+            <div class="md-form mt-2">
+              <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label>
+              <input type="email" id="orangeForm-email" class="form-control validate" placeholder="Email" formControlName="pa_email">
+            </div>
+          </div>
         </div>
-        <div>
-          <label class="radio__label">
-            <input type="radio" name="radio" checked/>
-            <span>Khác</span>
-          </label>
-        </div>
       </div>
-    </div>
-    <div class="col-md-6 row2__container">
-      <div class="text__filed">
-        <label class="inp" for="inp">
-          <input id="inp" placeholder="&nbsp;" type="text">
-          <span class="label">Số điện thoại</span>
-          <span class="focus-bg"></span>
-        </label>
+      <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-primary" >Đăng ký</button>
       </div>
-      <div class="text__filed">
-        <label class="inp" for="inp">
-          <input id="inp" placeholder="&nbsp;" type="text">
-          <span class="label">CMND/CCCD</span>
-          <span class="focus-bg"></span>
-        </label>
-      </div>
-      <div class="text__filed">
-        <label class="inp" for="inp">
-          <input id="inp" placeholder="&nbsp;" type="email">
-          <span class="label">Email</span>
-          <span class="focus-bg"></span>
-        </label>
-      </div>
+      </form>
     </div>
   </div>
 </div>
