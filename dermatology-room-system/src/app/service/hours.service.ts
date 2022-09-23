@@ -15,6 +15,6 @@ export class HoursService {
     }
 
     getAll(): Observable<IHours[]> {
-        return this.http.get<IHours[]>(API_URL + '/api/patient');
+        return this.http.get<IHours[]>(API_URL + '/api/hours');
     }
 }

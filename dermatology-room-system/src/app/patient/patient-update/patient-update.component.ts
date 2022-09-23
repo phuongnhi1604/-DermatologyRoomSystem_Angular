@@ -34,8 +34,7 @@ export class PatientUpdateComponent implements OnInit {
     private getPatient(id: number) {
         return this.patientService.findById(id).subscribe(patient => {
             this.patientUpdateForm = new FormGroup({
-                // pa_name: new FormControl(patient.pa_name),
-                name: new FormControl(patient.pa_name),
+                pa_name: new FormControl(patient.pa_name),
                 pa_birthday: new FormControl(patient.pa_birthday),
                 pa_gender: new FormControl(patient.pa_gender),
                 pa_address: new FormControl(patient.pa_address),
