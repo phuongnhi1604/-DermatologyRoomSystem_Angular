@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ICalendar} from '../../models/icalendar';
+import {CalendarService} from '../../service/calendar.service';
 
 @Component({
   selector: 'app-calendar-list',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calendar-list.component.css']
 })
 export class CalendarListComponent implements OnInit {
+    calendars: ICalendar[] = [];
+  constructor(private calendarService: CalendarService) { }
 
-  constructor() { }
-
+    config: any;
+  p = 1;
   ngOnInit(): void {
   }
-
+    getAll(){
+      this.calendarService.getAll().subscribe(calendars => {
+          this.calendars = calendars;
+      });
+    }
 }
