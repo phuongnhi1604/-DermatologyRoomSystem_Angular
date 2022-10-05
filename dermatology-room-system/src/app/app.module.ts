@@ -22,6 +22,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { DoctorCreateComponent } from './doctor/doctor-create/doctor-create.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MedicalUpdateComponent,
     FooterComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    DoctorCreateComponent
   ],
     imports: [
         BrowserModule,
