@@ -4,67 +4,69 @@
             <div>
                 <h2>Thông tin cá nhân</h2>
             </div>
-            <form (ngSubmit)="updatePatient(id)" [formGroup]="patientUpdateForm">
-                <div class="row">
-                    <div class="col-md-6 row1__container">
-                        <div class="modal-body">
-                            <div class="md-form">
-                                <label data-error="wrong" data-success="right" for="orangeForm-name">Họ và tên</label>
-                                <input class="form-control validate" formControlName="pa_name" id="orangeForm-name"
-                                       type="text">
-                            </div>
-                            <div class="md-form mt-2">
-                                <label data-error="wrong" data-success="right" for="orangeForm-birthday">Ngày
-                                    sinh</label>
-                                <input class="form-control validate" formControlName="pa_birthday"
-                                       id="orangeForm-birthday"
-                                       type="date">
-                            </div>
-                            <div class="md-form mt-2">
-                                <h4 class="mb-2 pb-1 ml-1">Giới tính </h4>
-                                <input class="form-check-input ml-5" formControlName="pa_gender" id="maleGender"
-                                       name="pa_gender"
-                                       type="radio" value="false"/>
-                                <label class="form-check-label" for="maleGender">Nam</label>
-                                <input class="form-check-input ml-5" formControlName="pa_gender" id="femaleGender"
-                                       name="pa_gender"
-                                       type="radio" value="true"/>
-                                <label class="form-check-label" for="femaleGender">Nữ</label>
-                            </div>
-                            <div class="md-form mt-2">
-                                <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label>
-                                <input class="form-control validate" formControlName="pa_email" id="orangeForm-email"
-                                       type="email">
+            <div>
+                <form (ngSubmit)="updatePatient(id)" [formGroup]="patientUpdateForm" *ngIf="patientUpdate">
+                    <div class="row">
+                        <div class="col-md-6 row1__container">
+                            <div class="modal-body">
+                                <div class="md-form">
+                                    <label data-error="wrong" data-success="right" for="orangeForm-name">Họ và tên</label>
+                                    <input class="form-control validate" formControlName="pa_name" id="orangeForm-name"
+                                           type="text">
+                                </div>
+                                <div class="md-form mt-2">
+                                    <label data-error="wrong" data-success="right" for="orangeForm-birthday">Ngày
+                                        sinh</label>
+                                    <input class="form-control validate" formControlName="pa_birthday"
+                                           id="orangeForm-birthday"
+                                           type="date">
+                                </div>
+                                <div class="md-form mt-2">
+                                    <h4 class="mb-2 pb-1 ml-1">Giới tính </h4>
+                                    <input class="form-check-input ml-5" formControlName="pa_gender" id="maleGender"
+                                           name="pa_gender"
+                                           type="radio" value="false"/>
+                                    <label class="form-check-label" for="maleGender">Nam</label>
+                                    <input class="form-check-input ml-5" formControlName="pa_gender" id="femaleGender"
+                                           name="pa_gender"
+                                           type="radio" value="true"/>
+                                    <label class="form-check-label" for="femaleGender">Nữ</label>
+                                </div>
+                                <div class="md-form mt-2">
+                                    <label data-error="wrong" data-success="right" for="orangeForm-email">Email</label>
+                                    <input class="form-control validate" formControlName="pa_email" id="orangeForm-email"
+                                           type="email">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 row2__container">
-                        <div class="modal-body">
-                            <div class="md-form">
-                                <label data-error="wrong" data-success="right" for="orangeForm-address">Địa chỉ</label>
-                                <input class="form-control validate" formControlName="pa_address"
-                                       id="orangeForm-address"
-                                       type="text">
-                            </div>
-                            <div class="md-form mt-2">
-                                <label data-error="wrong" data-success="right" for="orangeForm-phone">Số điện
-                                    thoại</label>
-                                <input class="form-control validate" formControlName="pa_phone" id="orangeForm-phone"
-                                       type="text">
-                            </div>
-                            <div class="md-form mt-2">
-                                <label data-error="wrong" data-success="right" for="orangeForm-cccd">CCCD/CMND</label>
-                                <input class="form-control validate" formControlName="pa_id_card" id="orangeForm-cccd"
-                                       type="text">
-                            </div>
+                        <div class="col-md-6 row2__container">
+                            <div class="modal-body">
+                                <div class="md-form">
+                                    <label data-error="wrong" data-success="right" for="orangeForm-address">Địa chỉ</label>
+                                    <input class="form-control validate" formControlName="pa_address"
+                                           id="orangeForm-address"
+                                           type="text">
+                                </div>
+                                <div class="md-form mt-2">
+                                    <label data-error="wrong" data-success="right" for="orangeForm-phone">Số điện
+                                        thoại</label>
+                                    <input class="form-control validate" formControlName="pa_phone" id="orangeForm-phone"
+                                           type="text">
+                                </div>
+                                <div class="md-form mt-2">
+                                    <label data-error="wrong" data-success="right" for="orangeForm-cccd">CCCD/CMND</label>
+                                    <input class="form-control validate" formControlName="pa_id_card" id="orangeForm-cccd"
+                                           type="text">
+                                </div>
 
+                            </div>
+                        </div>
+                        <div class="button__save">
+                            <button class="btn btn-primary">Lưu thay đổi</button>
                         </div>
                     </div>
-                    <div class="button__save">
-                        <button class="btn btn-primary">Lưu thay đổi</button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
         <div class="col-md-4 info__container">
             <h1>chang password</h1>

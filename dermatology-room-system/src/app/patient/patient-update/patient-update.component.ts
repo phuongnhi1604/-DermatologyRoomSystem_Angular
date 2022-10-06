@@ -24,23 +24,25 @@ export class PatientUpdateComponent implements OnInit {
   private getPatient(id: number) {
     return this.patientService.findById(id).subscribe(patient => {
       this.patientUpdateForm = new FormGroup({
-        pa_name: new FormControl(patient.pa_name),
-        pa_birthday: new FormControl(patient.pa_birthday),
-        pa_gender: new FormControl(patient.pa_gender),
-        pa_address: new FormControl(patient.pa_address),
-        pa_phone: new FormControl(patient.pa_phone),
-        pa_id_card: new FormControl(patient.pa_id_card),
-        pa_email: new FormControl(patient.pa_email),
-        username: new FormControl(patient.username),
+          pa_name: new FormControl(patient.pa_name),
+          pa_gender: new FormControl(patient.pa_gender),
+          pa_birthday: new FormControl(patient.pa_birthday),
+          pa_address: new FormControl(patient.pa_address),
+          pa_phone: new FormControl(patient.pa_phone),
+          pa_id_card: new FormControl(patient.pa_id_card),
+          pa_email: new FormControl(patient.pa_email),
+          username: new FormControl(patient.username)
       });
     });
   }
   ngOnInit(): void {
+      this.getPatient(this.id);
   }
   updatePatient(id: number) {
     const patient = this.patientUpdateForm.value;
     this.patientService.updatePatient(id, patient).subscribe(() => {
       alert('Cập nhật thành công');
+      this.router.navigateByUrl('/patient/list');
     });
   }
 }
