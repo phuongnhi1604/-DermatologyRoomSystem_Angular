@@ -1,39 +1,39 @@
-<div class="grid wide services__container">
-    <div class=" row">
-        <div class="col-md-8 text__container-service text__header">
-            <h3>Danh Sách Dịch Vụ</h3>
-        </div>
-        <div class="col-md-4 text__container-service ">
-            <a type="button" class="btn btn-primary" routerLink="/service/create"><i class="fa-solid fa-plus" ></i></a>
-        </div>
-        <div class="search__container">
-            <mdb-form-control>
-                <input mdbInput type="text" id="search" [(ngModel)]="searchText" class="form-control" />
-                <label mdbLabel class="form-label" for="search">Tìm kiếm</label>
-            </mdb-form-control>
-        </div>
-        <div class="row">
-<!--            <div *ngFor="let service of services | paginate: { itemsPerPage: 9, currentPage: p }| filter:searchText"-->
-                 class="col l-4 m-6 c-12 service__item">
-                <div id="myCard" class="card">
-                    <div class="bg-image hover-overlay ripple img__container">
-                        <img [src]="" id="testID" />
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{service.serviceName}}</h5>
-                        <p class="card-text"><i class="fa-solid fa-tags"></i>&nbsp; {{service.servicePrice}} vnđ</p>
-                        <p class="card-text" ><i class="fa-solid fa-house"></i>&nbsp; {{service.serviceType.serviceTypeName}}</p>
-                        <div class="button__container">
-                            <button type="button" class="btn btn-primary btn__card" data-toggle="modal" data-target="#exampleModal" (click)="getServiceDelete(service)" >
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                            <a class="btn btn-primary" [routerLink]="['/service/edit',service.serviceId]">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class="grid wide services__container">-->
+<!--    <div class=" row">-->
+<!--        <div class="col-md-8 text__container-service text__header">-->
+<!--            <h3>Danh Sách Dịch Vụ</h3>-->
+<!--        </div>-->
+<!--        <div class="col-md-4 text__container-service ">-->
+<!--            <a type="button" class="btn btn-primary" routerLink="/service/create"><i class="fa-solid fa-plus" ></i></a>-->
+<!--        </div>-->
+<!--        <div class="search__container">-->
+<!--            <mdb-form-control>-->
+<!--                <input mdbInput type="text" id="search" [(ngModel)]="searchText" class="form-control" />-->
+<!--                <label mdbLabel class="form-label" for="search">Tìm kiếm</label>-->
+<!--            </mdb-form-control>-->
+<!--        </div>-->
+<!--        <div class="row">-->
+<!--&lt;!&ndash;            <div *ngFor="let service of services | paginate: { itemsPerPage: 9, currentPage: p }| filter:searchText"&ndash;&gt;-->
+<!--                 class="col l-4 m-6 c-12 service__item">-->
+<!--                <div id="myCard" class="card">-->
+<!--                    <div class="bg-image hover-overlay ripple img__container">-->
+<!--                        <img [src]="" id="testID" />-->
+<!--                    </div>-->
+<!--                    <div class="card-body">-->
+<!--                        <h5 class="card-title">{{service.serviceName}}</h5>-->
+<!--                        <p class="card-text"><i class="fa-solid fa-tags"></i>&nbsp; {{service.servicePrice}} vnđ</p>-->
+<!--                        <p class="card-text" ><i class="fa-solid fa-house"></i>&nbsp; {{service.serviceType.serviceTypeName}}</p>-->
+<!--                        <div class="button__container">-->
+<!--                            <button type="button" class="btn btn-primary btn__card" data-toggle="modal" data-target="#exampleModal" (click)="getServiceDelete(service)" >-->
+<!--                                <i class="fa-solid fa-trash"></i>-->
+<!--                            </button>-->
+<!--                            <a class="btn btn-primary" [routerLink]="['/service/edit',service.serviceId]">-->
+<!--                                <i class="fa-solid fa-pen-to-square"></i>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
