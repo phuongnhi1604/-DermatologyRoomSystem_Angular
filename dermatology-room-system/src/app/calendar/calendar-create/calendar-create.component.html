@@ -1,1 +1,43 @@
-<p>calendar-create works!</p>
+<div class="grid wide calendar__container-create">
+    <form [formGroup]="calendarCreateForm" (ngSubmit)="submit()">
+        <div class="head__container">
+            <h2>Đặt lịch hẹn</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label data-error="wrong" data-success="right" for="orangeForm-name">Thời gian</label>
+                <select class="form-select" aria-label="Default select example" formControlName="hours">
+                    <option *ngFor="let hour of hours" [ngValue]="hour" >{{hour.hours}}</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <div class="md-form">
+                    <label data-error="wrong" data-success="right" for="orangeForm-name">Ngày đặt lịch</label>
+                    <input class="form-control validate" formControlName="cal_date" id="orangeForm-name"
+                           type="date">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label data-error="wrong" data-success="right" for="orangeForm-name">Bệnh nhân</label>
+                <select class="form-select" aria-label="Default select example" formControlName="patient">
+                    <option *ngFor="let patient of patient" [ngValue]="patient" >{{patient.pa_name}}</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label data-error="wrong" data-success="right" for="orangeForm-name" formControlName="cal_status">Trạng thái lịch</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option value="Đang chờ">Đang chờ</option>
+                    <option value="Đã nhận" disabled="" >Đã nhận</option>
+                    <option value="Thành công" disabled>Thành công</option>
+                    <option value="Huỷ lịch" disabled>Huỷ lịch</option>
+                </select>
+            </div>
+        </div>
+        <div class="button__save">
+            <button class="btn btn-primary">Lưu thông tin</button>
+        </div>
+    </form>
+</div>
+

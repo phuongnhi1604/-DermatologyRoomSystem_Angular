@@ -16,6 +16,14 @@
               <label data-error="wrong" data-success="right" for="orangeForm-user">Tên đăng nhập</label>
               <input type="text" id="orangeForm-user" class="form-control validate" placeholder="Tên đăng nhập" formControlName="username">
             </div>
+              <div class="md-form">
+                  <label data-error="wrong" data-success="right" for="orangeForm-user">Mật khẩu</label>
+                  <input type="text" id="orangeForm-user" class="form-control validate" placeholder="Mật khẩu" formControlName="password">
+              </div>
+              <div class="md-form">
+                  <label data-error="wrong" data-success="right" for="orangeForm-user">Nhập lại mật khẩu</label>
+                  <input type="text" id="orangeForm-user" class="form-control validate" placeholder="Nhập lại mật khẩu" formControlName="confirm_pass">
+              </div>
             <div class="md-form mt-2">
               <label data-error="wrong" data-success="right" for="orangeForm-name">Họ và tên</label>
               <input type="text" id="orangeForm-name" class="form-control validate" placeholder="Họ và tên" formControlName="pa_name">
@@ -24,15 +32,7 @@
               <label data-error="wrong" data-success="right" for="orangeForm-birthday">Ngày sinh</label>
               <input type="date" id="orangeForm-birthday" class="form-control validate" placeholder="Ngày sinh" formControlName="pa_birthday">
             </div>
-            <div class="md-form mt-2">
-              <h4 class="mb-2 pb-1 ml-1">Giới tính </h4>
-              <input class="form-check-input ml-5" type="radio" name="pa_gender" id="maleGender"
-                     value="false" formControlName="pa_gender" />
-              <label class="form-check-label" for="maleGender">Nam</label>
-              <input class="form-check-input ml-5" type="radio" name="pa_gender" id="femaleGender"
-                     value="true" formControlName="pa_gender" />
-              <label class="form-check-label" for="femaleGender">Nữ</label>
-            </div>
+
           </div>
         </div>
         <div class="col-md-6">
@@ -45,6 +45,15 @@
               <label data-error="wrong" data-success="right" for="orangeForm-phone">Số điện thoại</label>
               <input type="text" id="orangeForm-phone" class="form-control validate" placeholder="Số điện thoại" formControlName="pa_phone">
             </div>
+              <div class="md-form mt-2">
+                  <h4 class="mb-2 pb-1 ml-1">Giới tính </h4>
+                  <input class="form-check-input ml-5" type="radio" name="pa_gender" id="maleGender"
+                         value="false" formControlName="pa_gender" />
+                  <label class="form-check-label" for="maleGender">Nam</label>
+                  <input class="form-check-input ml-5" type="radio" name="pa_gender" id="femaleGender"
+                         value="true" formControlName="pa_gender" />
+                  <label class="form-check-label" for="femaleGender">Nữ</label>
+              </div>
             <div class="md-form mt-2">
               <label data-error="wrong" data-success="right" for="orangeForm-cccd">CCCD/CMND</label>
               <input type="text" id="orangeForm-cccd" class="form-control validate" placeholder="CMND/CCCD" formControlName="pa_id_card">
