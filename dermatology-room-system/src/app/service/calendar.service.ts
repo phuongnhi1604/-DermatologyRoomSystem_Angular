@@ -21,7 +21,7 @@ export class CalendarService {
     findById(id: number): Observable<ICalendar>{
       return this.http.get<ICalendar>(`${API_URL}/api/calendar/${id}`);
     }
-    updateCalendar(id: number): Observable<ICalendar> {
+    updateCalendar(id: number, calendar: ICalendar): Observable<ICalendar> {
         // @ts-ignore
         return this.http.put<ICalendar>(`${API_URL}/api/calendar/${id}`);
     }

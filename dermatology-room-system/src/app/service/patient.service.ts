@@ -26,7 +26,6 @@ export class PatientService {
   findById(id: number): Observable<IPatient> {
     return this.http.get<IPatient>(`${API_URL}/api/patient/${id}`);
   }
-
   updatePatient(id: number, patient: IPatient): Observable<IPatient> {
     return this.http.put<IPatient>(`${API_URL}/api/patient/${id}`, patient);
   }

@@ -1,4 +1,3 @@
-import {ICalendar} from './icalendar';
 
 export interface IPatient {
   pa_id?: number;
