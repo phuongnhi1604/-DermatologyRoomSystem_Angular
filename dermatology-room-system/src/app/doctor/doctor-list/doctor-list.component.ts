@@ -7,14 +7,13 @@ import {IDoctor} from '../../models/idoctor';
     styleUrls: ['./doctor-list.component.css']
 })
 export class DoctorListComponent implements OnInit {
-    doctors: IDoctor[] = {};
-    name: string
+    doctors: IDoctor[] = [];
+    name: string;
     constructor() { }
 
     ngOnInit(): void {
     }
 
-    GetAll(){
-        this.
+    GetAll() {
     }
 }
