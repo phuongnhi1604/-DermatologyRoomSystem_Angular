@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {PatientService} from '../../service/patient.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ComparePassword} from '../../validate/customvalidator.validator';
 
 @Component({
     selector: 'app-patient-create',
@@ -10,14 +11,18 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class PatientCreateComponent implements OnInit {
     patientCreateForm = new FormGroup({
-        pa_name: new FormControl(),
-        pa_birthday: new FormControl(),
-        pa_gender: new FormControl(),
-        pa_address: new FormControl(),
-        pa_phone: new FormControl(),
-        pa_id_card: new FormControl(),
-        pa_email: new FormControl(),
-        username: new FormControl(),
+        pa_name: new FormControl('', [Validators.required]),
+        pa_birthday: new FormControl('', [Validators.required]),
+        pa_gender: new FormControl('', [Validators.required]),
+        pa_address: new FormControl('', [Validators.required]),
+        pa_phone: new FormControl('', [Validators.required]),
+        pa_id_card: new FormControl('', [Validators.required]),
+        pa_email: new FormControl('', [Validators.required]),
+        username: new FormControl('', [Validators.required]),
+        pass: new FormGroup({
+            password: new FormControl('', [Validators.required]),
+            confirmPassword: new FormControl('', [Validators.required])
+        }, ComparePassword)
     });
     constructor(private patient: PatientService,
                 private activatedRouter: ActivatedRoute,
