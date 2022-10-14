@@ -1,0 +1,61 @@
+<div class="grid wide info__container">
+    <div class="card">
+        <div class="card-header">
+            <ul class="nav nav-pills card-header-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="true" routerLink="/patient/info/info-detail">Thông tin cá nhân</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/patient/info/calendar-detail">Danh sách lịch hẹn</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body card__container">
+            <h1 class="card-title">Thông tin cá nhân</h1>
+            <div class="row row__container">
+                <div class="col-md-6">
+                    <div>
+                        <label><strong>Họ và tên:</strong></label>
+                        <span style="margin-left: 30px">{{patient.pa_name}}</span>
+                    </div>
+                    <div>
+                        <label><strong>Ngày sinh:</strong> </label>
+                        <span>{{patient.pa_birthday}}</span>
+                    </div>
+                    <div>
+                        <label><strong>Giới tính:</strong> </label>
+                        <span>{{patient.pa_gender}}</span>
+                    </div>
+                    <div>
+                        <label><strong>Địa chỉ:</strong> </label>
+                        <span>{{patient.pa_address}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <label><strong>Số điện thoại: </strong></label>
+                        <span>{{patient.pa_phone}}</span>
+                    </div>
+                    <div>
+                        <label><strong>Email: </strong> </label>
+                        <span>{{patient.pa_address}}</span>
+                    </div>
+                    <div>
+                        <label><strong>CMND/CCCD:</strong> </label>
+                        <span>{{patient.pa_id_card}}</span>
+                    </div>
+                    <div>
+                        <label><strong>Tên đăng nhập: </strong></label>
+                        <span>{{patient.username}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="btn__update">
+                <a   class="btn btn-primary">Cập nhật thông tin</a>
+                <!--                <a [routerLink]="['/patient/update',patient.pa_id]"  class="btn btn-primary">Cập nhận thông tin</a>-->
+
+            </div>
+        </div>
+    </div>
+
+</div>

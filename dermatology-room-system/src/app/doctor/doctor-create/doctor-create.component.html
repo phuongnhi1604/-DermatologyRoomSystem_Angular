@@ -1,1 +1,225 @@
-<p>doctor-create works!</p>
+<div class="modal fade w-200" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form  [formGroup]="doctorCreateForm" (ngSubmit)="submit()">
+                <div class="modal-header text-center">
+                    <h1 class="modal-title w-100 font-weight-bold">Đăng ký</h1>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="modal-body mx-3">
+                            <div formGroupName="account">
+                                <div class="md-form">
+                                    <label data-error="wrong" data-success="right" for="username">Tên đăng nhập</label>
+                                    <input type="text" id="username" class="form-control validate" minlength="8" maxlength="20" (change)="checkUsername($event.target.value)" placeholder="Tên đăng nhập" formControlName="username">
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('account').get('username')?.invalid && (doctorCreateForm.get('account').get('username')?.touched||doctorCreateForm.get('account').get('username')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('account').get('username').errors.required">
+                                        <small class="form-text mess">
+                                            Tên đăng nhập không được để trống.</small>
+                                    </div>
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('account').get('username')?.invalid && (doctorCreateForm.get('account').get('username')?.touched||doctorCreateForm.get('account').get('username')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('account').get('username').hasError('maxlength')">
+                                        <small class="form-text mess">
+                                            Tên đăng nhập chỉ chứa tối thiểu 20 kí tự.</small>
+                                    </div>
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('account').get('username')?.invalid && (doctorCreateForm.get('account').get('username')?.touched||doctorCreateForm.get('account').get('username')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('account').get('username').hasError('minlength')">
+                                        <small class="form-text mess">
+                                            Tên đăng nhập chứa tối thiểu 8 kí tự.</small>
+                                    </div>
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('account').get('username')?.invalid && (doctorCreateForm.get('account').get('username')?.touched||doctorCreateForm.get('account').get('username')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('account').get('username').errors.pattern">
+                                        <small class="form-text mess">
+                                            Tên đăng nhập không được chứa kí tự hoa hoặc kí tự đặc biệt.</small>
+                                    </div>
+                                </div>
+                                <div>
+                                    <small class="form-text mess">{{usernameAlreadyExist}}</small>
+                                </div>
+                                <div class="md-form">
+                                    <label data-error="wrong" data-success="right" for="password">Mật khẩu</label>
+                                    <input type="password" id="password" class="form-control validate" minlength="8" maxlength="20" placeholder="Mật khẩu" formControlName="password">
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('account').get('password')?.invalid && (doctorCreateForm.get('account').get('password')?.touched||doctorCreateForm.get('account').get('password')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('account').get('password').errors.required">
+                                        <small class="form-text mess">
+                                            Mật khẩu không được để trống.</small>
+                                    </div>
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('account').get('password')?.invalid && (doctorCreateForm.get('account').get('password')?.touched||doctorCreateForm.get('account').get('password')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('account').get('password').errors.pattern">
+                                        <small class="form-text mess">
+                                            Mật khẩu phải chứa tối thiểu 8 kí tự, chứa ít nhất một kí tự hoa, một kí tự thường, một kí tự số và một kí tự đặc biệt.</small>
+                                    </div>
+                                </div>
+                                <div class="md-form">
+                                    <label data-error="wrong" data-success="right" for="confirmPass">Nhập lại mật khẩu</label>
+                                    <input type="password" id="confirmPass" class="form-control validate" placeholder="Nhập lại mật khẩu" formControlName="confirmPassword">
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('account').get('confirmPassword')?.invalid && (doctorCreateForm.get('account').get('confirmPassword')?.touched||doctorCreateForm.get('account').get('confirmPassword')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('account').get('confirmPassword').errors.required">
+                                        <small class="form-text mess">
+                                            Nhập lại mật khẩu không được để trống.</small>
+                                    </div>
+                                </div>
+                                <div>
+                                    <small class="form-text mess">{{confirmPassCheck}}</small>
+                                </div>
+                            </div>
+
+                            <div formGroupName="doctor">
+                                <div class="md-form mt-2">
+                                    <label data-error="wrong" data-success="right" for="name">Họ và tên</label>
+                                    <input type="text" id="name" class="form-control validate" minlength="8" maxlength="50" placeholder="Họ và tên" formControlName="doctor_name">
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_name')?.invalid && (doctorCreateForm.get('doctor').get('doctor_name')?.touched||doctorCreateForm.get('doctor').get('doctor_name')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_name').errors.required">
+                                        <small class="form-text mess">
+                                            Họ và tên không được để trống.</small>
+                                    </div>
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_name')?.invalid && (doctorCreateForm.get('doctor').get('doctor_name')?.touched||doctorCreateForm.get('doctor').get('doctor_name')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_name').hasError('minlength')">
+                                        <small class="form-text mess">
+                                            Họ và tên chứa tối thiểu 8 kí tự.</small>
+                                    </div>
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_name')?.invalid && (doctorCreateForm.get('doctor').get('doctor_name')?.touched||doctorCreateForm.get('doctor').get('doctor_name')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_name').hasError('maxlength')">
+                                        <small class="form-text mess">
+                                            Họ và tên chỉ chứa tối đa 50 kí tự.</small>
+                                    </div>
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_name')?.invalid && (doctorCreateForm.get('doctor').get('doctor_name')?.touched||doctorCreateForm.get('doctor').get('doctor_name')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_name').errors.pattern">
+                                        <small class="form-text mess">
+                                            Họ và tên chưa đúng định dạng in hoa kí tự đầu.</small>
+                                    </div>
+                                </div>
+                                <div class="md-form mt-2">
+                                    <label data-error="wrong" data-success="right" for="birthday">Ngày sinh</label>
+                                    <input type="date" id="birthday" class="form-control validate" placeholder="Ngày sinh" formControlName="doctor_birthday">
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_birthday')?.invalid && (doctorCreateForm.get('doctor').get('doctor_birthday')?.touched||doctorCreateForm.get('doctor').get('doctor_birthday')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_birthday').errors.required">
+                                        <small class="form-text mess">
+                                            Ngày sinh không được để trống.</small>
+                                    </div>
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_birthday')?.invalid && (doctorCreateForm.get('doctor').get('doctor_birthday')?.touched||doctorCreateForm.get('doctor').get('doctor_birthday')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_birthday').hasError('invalidAge')">
+                                        <small class="form-text mess">
+                                            Tuổi phải lớn hơn 18.</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="modal-body mx-3">
+                            <div formGroupName="doctor">
+                                <div class="md-form">
+                                    <label data-error="wrong" data-success="right" for="address">Địa chỉ</label>
+                                    <input type="text" id="address" class="form-control validate" minlength="5" maxlength="60" placeholder="Địa chỉ" formControlName="doctor_address">
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_address')?.invalid && (doctorCreateForm.get('doctor').get('doctor_address')?.touched||doctorCreateForm.get('doctor').get('doctor_address')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_address').errors.required">
+                                        <small class="form-text mess">
+                                            Địa chỉ không được để trống.</small>
+                                    </div>
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_address')?.invalid && (doctorCreateForm.get('doctor').get('doctor_address')?.touched||doctorCreateForm.get('doctor').get('doctor_address')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_address').hasError('maxlength')">
+                                        <small class="form-text mess">
+                                            Địa chỉ chỉ chứa tối đa 60 kí tự.</small>
+                                    </div>
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_address')?.invalid && (doctorCreateForm.get('doctor').get('doctor_address')?.touched||doctorCreateForm.get('doctor').get('doctor_address')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_address').hasError('minlength')">
+                                        <small class="form-text mess">
+                                            Địa chỉ phải chứa tối thiểu 5 kí tự.</small>
+                                    </div>
+                                </div>
+                                <div class="md-form mt-2">
+                                    <label data-error="wrong" data-success="right" for="phone">Số điện thoại</label>
+                                    <input type="text" id="phone" class="form-control validate" placeholder="Số điện thoại" formControlName="doctor_phone">
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_phone')?.invalid && (doctorCreateForm.get('doctor').get('doctor_phone')?.touched||doctorCreateForm.get('doctor').get('doctor_phone')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_phone').errors.required">
+                                        <small class="form-text mess">
+                                            Số điện thoại không được để trống.</small>
+                                    </div>
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_phone')?.invalid && (doctorCreateForm.get('doctor').get('doctor_phone')?.touched||doctorCreateForm.get('doctor').get('doctor_phone')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_phone').errors.pattern">
+                                        <small class="form-text mess">
+                                            Số điện thoại chưa đúng định dạng 03x hoặc 05x hoặc 07x hoặc 08x hoặc 09x.</small>
+                                    </div>
+                                </div>
+                                <div class="md-form mt-2">
+                                    <h4 class="mb-2 pb-1 ml-1">Giới tính </h4>
+                                    <input class="form-check-input ml-5" type="radio" name="doctor_gender" id="maleGender"
+                                           value="false" formControlName="doctor_gender" />
+                                    <label class="form-check-label" for="maleGender">Nam</label>
+                                    <input class="form-check-input ml-5" type="radio" name="doctor_gender" id="femaleGender"
+                                           value="true" formControlName="doctor_gender" />
+                                    <label class="form-check-label" for="femaleGender">Nữ</label>
+                                </div>
+                                <div class="md-form mt-2">
+                                    <label data-error="wrong" data-success="right" for="cccd">CCCD/CMND</label>
+                                    <input type="text" id="cccd" class="form-control validate" placeholder="CMND/CCCD" formControlName="doctor_id_card">
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_id_card')?.invalid && (doctorCreateForm.get('doctor').get('doctor_id_card')?.touched||doctorCreateForm.get('doctor').get('doctor_id_card')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_id_card').errors.required">
+                                        <small class="form-text mess">
+                                            CMND/CCCD không được để trống.</small>
+                                    </div>
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_id_card')?.invalid && (doctorCreateForm.get('doctor').get('doctor_id_card')?.touched||doctorCreateForm.get('doctor').get('doctor_id_card')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_id_card').errors.pattern">
+                                        <small class="form-text mess">
+                                            CMND/CCCD chưa đúng định dạng 12 số.</small>
+                                    </div>
+                                </div>
+                                <div class="md-form mt-2">
+                                    <label data-error="wrong" data-success="right" for="email">Email</label>
+                                    <input type="email" id="email" class="form-control validate" maxlength="40" placeholder="Email" formControlName="doctor_email">
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_email')?.invalid && (doctorCreateForm.get('doctor').get('doctor_email')?.touched||doctorCreateForm.get('doctor').get('doctor_email')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_email').errors.required">
+                                        <small class="form-text mess">
+                                            Email không được để trống.</small>
+                                    </div>
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_email')?.invalid && (doctorCreateForm.get('doctor').get('doctor_email')?.touched||doctorCreateForm.get('doctor').get('doctor_email')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_email').hasError('maxlength')">
+                                        <small class="form-text mess">
+                                            Email chỉ chứa tối đa 40 kí tự.</small>
+                                    </div>
+                                </div>
+                                <div *ngIf="doctorCreateForm.get('doctor').get('doctor_email')?.invalid && (doctorCreateForm.get('doctor').get('doctor_email')?.touched||doctorCreateForm.get('doctor').get('doctor_email')?.dirty)">
+                                    <div [hidden]="!doctorCreateForm.get('doctor').get('doctor_email').errors.pattern">
+                                        <small class="form-text mess">
+                                            Email chưa đúng định dạng @gmail.com.</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-primary" [disabled]="!doctorCreateForm.valid || usernameAlreadyExist !== ''">Đăng ký</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

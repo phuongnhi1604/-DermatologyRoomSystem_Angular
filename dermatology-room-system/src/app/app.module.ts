@@ -21,7 +21,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {NgxPaginationModule} from 'ngx-pagination';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DoctorCreateComponent } from './doctor/doctor-create/doctor-create.component';
 
 @NgModule({

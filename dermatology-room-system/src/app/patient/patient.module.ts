@@ -6,7 +6,7 @@ import { PatientSearchComponent } from './patient-search/patient-search.componen
 
 
 @NgModule({
-  declarations: [PatientSearchComponent],
+  declarations: [],
   imports: [
     CommonModule,
     PatientRoutingModule
